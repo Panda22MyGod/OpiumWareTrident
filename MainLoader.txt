@@ -62,7 +62,7 @@ local GamesSection = LoaderPage:Section({Name = "Выберите игру", Sid
 
 -- Кнопка для Trident Survival
 GamesSection:Button({
-    Name = "⚔️ TRIDENT SURVIVAL",
+    Name = "⚔️ Trident Survival",
     Callback = function()
         local success, err = pcall(function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Panda22MyGod/OpiumWareTRIDENTSUr/refs/heads/main/TridentSurvival.txt"))()
@@ -89,7 +89,7 @@ GamesSection:Button({
 
 -- Кнопка для Blox Strike
 GamesSection:Button({
-    Name = "🔫 BLOX STRIKE",
+    Name = "🔫 Blox Strike",
     Callback = function()
         local success, err = pcall(function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Panda22MyGod/OpiumWareBloxSTR/refs/heads/main/BSLOADER.txt"))()
@@ -113,40 +113,35 @@ GamesSection:Button({
         end
     end
 })
-
--- Разделитель
-GamesSection:Label("─────────────────────────────")
-
--- Кнопка для загрузки всего
+-- Кнопка для Trident Survival Legit
 GamesSection:Button({
-    Name = "📦 ЗАГРУЗИТЬ ВСЕ",
+    Name = "⚔️Trident Survival Legit",
     Callback = function()
-        local success1, err1 = pcall(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Panda22MyGod/OpiumWareTRIDENTSUr/refs/heads/main/TridentSurvival.txt"))()
+        local success, err = pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Panda22MyGod/OpiumWareLegitTS/refs/heads/main/TridentLEGIT.txt"))()
         end)
-        
-        local success2, err2 = pcall(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Panda22MyGod/OpiumWareBloxSTR/refs/heads/main/BSLOADER.txt"))()
-        end)
-        
-        if success1 and success2 then
-            print("✅ Все скрипты загружены успешно!")
+        if success then
+            print("Trident Survival Legit загружен")
             Library:Notification({
                 Title = "Успех!",
-                Description = "Все скрипты успешно загружены!",
-                Duration = 5,
+                Description = "Trident Survival Legit загружен",
+                Duration = 1,
                 Icon = "73789337996373"
             })
         else
+            print("Ошибка загрузки Trident Survival Legit: " .. tostring(err))
             Library:Notification({
-                Title = "Ошибка!",
-                Description = "Не удалось загрузить некоторые скрипты",
-                Duration = 5,
+                Title = "Ошибка",
+                Description = "Не удалось загрузить Trident Survival Legit",
+                Duration = 1,
                 Icon = "73789337996373"
             })
         end
     end
 })
+-- Разделитель
+GamesSection:Label("─────────────────────────────")
+
 
 -- Вторая секция с информацией
 local InfoSection = LoaderPage:Section({Name = "Информация", Side = 2})
@@ -154,43 +149,14 @@ local InfoSection = LoaderPage:Section({Name = "Информация", Side = 2}
 InfoSection:Label("📱 Поддержка мобильных устройств")
 InfoSection:Label("🔒 Безопасная загрузка")
 InfoSection:Label("⚡ Быстрый доступ")
-InfoSection:Label("🔄 Автоматическое обновление")
+InfoSection:Label("⚡ НАЖИМАЙТЕ ТОЛЬКО 1 РАЗ!!")
 
 -- Разделитель
 InfoSection:Label("─────────────────────────────")
-
-InfoSection:Label("📌 Выберите игру для загрузки читов")
-InfoSection:Label("⚠️ Используйте на свой страх и риск")
-
+InfoSection:Label("⚡ НАЖИМАЙТЕ ТОЛЬКО 1 РАЗ!!")
 -- Кнопка для переключения темы (опционально)
-InfoSection:Button({
-    Name = "🔄 Сменить тему",
-    Callback = function()
-        local themes = {"Accent", "AccentGradient", "Default"}
-        local currentTheme = themes[math.random(1, #themes)]
-        Library:ChangeTheme(currentTheme, Accent)
-        Library:Notification({
-            Title = "Система",
-            Description = "Тема изменена!",
-            Duration = 3,
-            Icon = "73789337996373"
-        })
-    end
-})
 
--- Секция с настройками клавиш
-local KeybindSection = LoaderPage:Section({Name = "Горячие клавиши", Side = 2})
 
-KeybindSection:Keybind({
-    Name = "Открыть/Закрыть меню",
-    Flag = "togglemenu",
-    Default = Enum.KeyCode.RightControl,
-    Callback = function(Value)
-        if Value then
-            Window:Toggle()
-        end
-    end
-})
 
 -- Страница настроек
 Window:Category("Settings")
@@ -198,7 +164,3 @@ local SettingsPage = Library:CreateSettingsPage(Window, KeybindList)
 
 -- Инициализация
 Window:Init()
-
-print("🚀 Script Loader успешно загружен!")
-print("📦 Используйте меню для загрузки скриптов")
-print("⚔️ Доступны: Trident Survival & Blox Strike")
